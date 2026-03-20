@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RDCS CYBER SECURITY OFFICIAL</title>
+
+  <style>
+    body {
+      background: black;
+      color: #00ff00;
+      font-family: monospace;
+      text-align: center;
+    }
+
+    .panel {
+      margin: 20px;
+      padding: 20px;
+      border-radius: 15px;
+      border: 2px solid #00ff00;
+      box-shadow: 0 0 30px #00ff00;
+    }
+
+    h1 {
+      text-shadow: 0 0 20px #00ff00;
+    }
+
+    .status {
+      background: #00ff00;
+      color: black;
+      padding: 8px;
+      font-weight: bold;
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .modules {
+      border: 1px dashed #00ff00;
+      padding: 10px;
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin-top: 15px;
+      background: black;
+      color: #00ff00;
+      border: 1px solid #00ff00;
+    }
+
+    button {
+      width: 95%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #00ff00;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #log {
+      margin-top: 10px;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    .access {
+      display: none;
+      font-size: 20px;
+      margin-top: 20px;
+      color: #00ff00;
+      text-shadow: 0 0 20px #00ff00;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="panel">
+
+  <h1>RDCS CYBER SECURITY OFFICIAL</h1>
+
+  <div class="status">SYSTEM ONLINE</div>
+
+  <div class="modules">
+    ✔ Stealth IP Logger <br>
+    ✔ Advanced Geo Tracking <br>
+    ✔ Browser Fingerprinting <br>
+    ✖ SQL Tool (Locked) <br>
+    ✖ Admin Access (Locked)
+  </div>
+
+  <input type="text" id="key" placeholder="ENTER MASTER KEY">
+  <button onclick="start()">BYPASS SECURITY</button>
+
+  <div id="log"></div>
+
+  <div class="access" id="accessBox">
+    ✅ ACCESS GRANTED <br>
+    RDCS CYBER SECURITY OFFICIAL <br><br>
+    🌍 IP: 192.168.0.1 <br>
+    📍 Location: Unknown <br>
+    💻 Device: Android
+  </div>
+
+</div>
+
+<script>
+function typeEffect(text, element, speed, callback) {
+  let i = 0;
+  let timer = setInterval(() => {
+    element.innerHTML += text.charAt(i);
+    i++;
+    if (i >= text.length) {
+      clearInterval(timer);
+      if (callback) callback();
+    }
+  }, speed);
+}
+
+function start() {
+  let key = document.getElementById("key").value;
+  let log = document.getElementById("log");
+  log.innerHTML = "";
+
+  let steps = [
+    "Connecting to RDCS server...",
+    "Bypassing firewall...",
+    "Injecting payload...",
+    "Tracking IP address...",
+    "Accessing system..."
+  ];
+
+  let i = 0;
+
+  function nextStep() {
+    if (i < steps.length) {
+      typeEffect(steps[i] + "\n", log, 30, () => {
+        log.innerHTML += "<br>";
+        i++;
+        nextStep();
+      });
+    } else {
+      if (key === "RDCS") {
+        document.getElementById("accessBox").style.display = "block";
+      } else {
+        log.innerHTML += "<br>❌ ACCESS DENIED";
+      }
+    }
+  }
+
+  nextStep();
+}
+</script>
+
+</body>
+</html>
